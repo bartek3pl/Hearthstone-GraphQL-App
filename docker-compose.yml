@@ -1,0 +1,28 @@
+version: "3"
+services:
+  server:
+    container_name: server
+    restart: always
+    build: ./server
+    ports:
+      - 4000:4000
+    depends_on:
+      - mongo
+  client:
+    container_name: client
+    restart: always
+    build: ./client
+    ports:
+      - 8080:8080
+    links:
+      - server
+  mongo:
+    container_name: mongo
+    image: mongo
+    restart: always
+    expose:
+      - "27017"
+    volumes:
+      - ./data:/data/db
+    ports:
+      - "27017:27017"
