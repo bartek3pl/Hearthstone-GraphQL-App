@@ -104,7 +104,6 @@ const Registration = () => {
   };
 
   useEffect(() => {
-    console.log(responseMessage, error);
     if (responseMessage && !error) {
       showSuccessNotification(responseMessage);
       history.push(routes.menu);
