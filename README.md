@@ -40,7 +40,7 @@ I have built this application using:
 
 * [Node](https://nodejs.org/en/)
 * [MongoDB](https://www.mongodb.com/)
-* [Mongoose(https://mongoosejs.com/)
+* [Mongoose](https://mongoosejs.com/)
 * [Apollo Server](https://www.apollographql.com/docs/apollo-server/)
 * [GraphQL](https://graphql.org/)
 * [Docker](https://www.docker.com/)
@@ -48,10 +48,6 @@ I have built this application using:
  
 <!-- GETTING STARTED -->
 ## Getting Started
- 
-How to use application
-
-### Usage
  
 ### Installation and running on localhost (by docker-compose)
  
@@ -67,8 +63,8 @@ If step 4 will somehow fail run below commands in exactly the same order
 - ```docker-compose up -d server```
 - ```docker-compose up -d client```
 
-Client will run on: 192.168.99.100:8080
-Server will run on: 192.168.99.100:4000
+Client will run on: ```192.168.99.100:8080```
+Server will run on: ```192.168.99.100:4000```
 
 ### Installation and running on localhost (by npm)
  
@@ -77,8 +73,8 @@ Server will run on: 192.168.99.100:4000
 3. Go to /server directory and run ```npm install``` command.
 3. Run ```npm start``` in both directories and have fun!
 
-Client is run on: localhost:8080
-Server is run on: localhost:4000
+Client is run on: ```localhost:8080```
+Server is run on: ```localhost:4000```
  
 <!-- CONTACT -->
 ## Contact
