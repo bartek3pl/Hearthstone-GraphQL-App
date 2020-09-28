@@ -1,4 +1,4 @@
-enum Rarity {
+export enum Rarity {
   COMMON,
   RARE,
   EPIC,
@@ -7,7 +7,7 @@ enum Rarity {
   UNKNOWN,
 }
 
-enum ClassName {
+export enum ClassName {
   MAGE,
   ROGUE,
   WARRIOR,
@@ -22,15 +22,15 @@ enum ClassName {
 }
 
 export interface Card {
-  _id: string;
-  id: string;
+  _id?: string;
+  id?: string;
   name: string;
   text: string;
   className: ClassName;
   attack: number;
   health: number;
   image: string;
-  imageGold: string;
+  imageGold?: string;
   manaCost: number;
   rarity: Rarity;
 }

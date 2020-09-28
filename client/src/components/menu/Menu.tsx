@@ -1,9 +1,17 @@
 import * as React from 'react';
-import { useEffect } from 'react';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
+import { useState, useEffect } from 'react';
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  Button,
+  Tabs,
+  Tab,
+  Paper,
+} from '@material-ui/core';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import ViewAgenda from '@material-ui/icons/ViewAgenda';
+import ViewCarousel from '@material-ui/icons/ViewCarousel';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { logout } from '../../store/user/userActions';
@@ -16,11 +24,17 @@ import {
   setNotificationMessage,
   setNotificationSeverity,
 } from '../../store/notification/notificationActions';
+import TabPanel from '../tabPanel/TabPanel';
+import Cards from '../cards/Cards';
+import FavouriteCards from '../favouriteCards/FavouriteCards';
+import Decks from '../decks/Decks';
 
 const Menu = () => {
   const dispatch = useDispatch();
 
   const history = useHistory();
+
+  const [currentTab, setCurrentTab] = useState<number>(0);
 
   const token = useSelector<UserReducers, string>(
     (state) => state.userReducers.token
@@ -50,17 +64,49 @@ const Menu = () => {
     }
   }, [token]);
 
+  const handleTabChange = (_event: React.FormEvent, value: number) => {
+    setCurrentTab(value);
+  };
+
   return (
-    <div className={styles.menuWrapper}>
+    <>
       <AppBar position="static">
         <Toolbar>
-          <Typography variant="h6">Hearthstone API</Typography>
+          <Typography variant="h6" className={styles.title}>
+            Hearthstone API
+          </Typography>
           <Button color="inherit" onClick={handleLogout}>
             Logout
           </Button>
         </Toolbar>
+
+        <Paper square>
+          <Tabs
+            value={currentTab}
+            indicatorColor="primary"
+            textColor="primary"
+            aria-label="menu navigation tabs"
+            onChange={handleTabChange}
+          >
+            <Tab label="Cards" icon={<ViewCarousel />} />
+            <Tab label="Favourite Cards" icon={<FavoriteIcon />} />
+            <Tab label="Decks" icon={<ViewAgenda />} />
+          </Tabs>
+        </Paper>
       </AppBar>
-    </div>
+
+      <TabPanel value={currentTab} index={0}>
+        <Cards />
+      </TabPanel>
+
+      <TabPanel value={currentTab} index={1}>
+        <FavouriteCards />
+      </TabPanel>
+
+      <TabPanel value={currentTab} index={2}>
+        <Decks />
+      </TabPanel>
+    </>
   );
 };
 

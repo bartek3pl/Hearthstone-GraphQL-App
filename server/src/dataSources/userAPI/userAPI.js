@@ -89,7 +89,7 @@ class UserAPI extends DataSource {
       },
       Config.TOKEN_SECRET_JWT,
       {
-        expiresIn: 120,
+        expiresIn: 7200,
       }
     );
 
@@ -100,7 +100,7 @@ class UserAPI extends DataSource {
       },
       Config.TOKEN_SECRET_JWT,
       {
-        expiresIn: 480,
+        expiresIn: 10800,
       }
     );
 
