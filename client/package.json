@@ -7,8 +7,25 @@
     "start": "webpack-dev-server --open --mode development",
     "build": "webpack --mode production",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prettify": "npx prettier --write ./src/**/*.{js,html,scss}",
-    "lint": "npx eslint ./src/**/*.js --fix"
+    "lint:fix": "npx eslint --fix --ext .js,.jsx,.ts,.tsx .",
+    "lint": "npx eslint --ext .js,.jsx,.ts,.tsx .",
+    "format": "npx prettier --write \"**/*.+(js|jsx|ts|tsx|json|css|scss)\"",
+    "format:check": "npx prettier --check \"**/*.+(js|jsx|ts|tsx|json|css|scss)\""
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.+(js|jsx|ts|tsx|json|css|scss)": [
+      "prettier --write",
+      "git add"
+    ],
+    "*.+(js|jsx|ts|tsx)": [
+      "eslint --fix",
+      "git add"
+    ]
   },
   "keywords": [],
   "author": "",
@@ -35,7 +52,9 @@
     "eslint-plugin-react-hooks": "^4.1.2",
     "html-loader": "^1.1.0",
     "html-webpack-plugin": "^4.3.0",
+    "husky": "^4.3.0",
     "json-loader": "^0.5.7",
+    "lint-staged": "^10.4.0",
     "prettier": "2.0.5",
     "sass": "^1.26.10",
     "sass-loader": "^9.0.3",
