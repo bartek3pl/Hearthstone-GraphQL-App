@@ -5,6 +5,7 @@ import Routes from './routes/Routes';
 import Notification from './components/notification/Notification';
 import { hideNotification } from './store/notification/notificationActions';
 import { NotificationReducers } from './interfaces/Reducers';
+import ErrorBoundary from './components/errorBoundary/ErrorBoundary';
 
 const client = new ApolloClient({
   uri: 'http://localhost:4000',
@@ -29,7 +30,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <>
+    <ErrorBoundary>
       <ApolloProvider client={client}>
         <Routes />
       </ApolloProvider>
@@ -40,7 +41,7 @@ const App: React.FC = () => {
         severity={notificationSeverity}
         message={notificationMessage}
       />
-    </>
+    </ErrorBoundary>
   );
 };
 
