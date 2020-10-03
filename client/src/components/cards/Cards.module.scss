@@ -1,6 +1,16 @@
+.searcherWrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+
+  .selectInput {
+    min-width: 120px;
+  }
+}
+
 .cardsGrid {
   position: relative;
-  margin-top: 20px !important;
+  margin-top: 5px !important;
   margin-left: auto !important;
 }
 
