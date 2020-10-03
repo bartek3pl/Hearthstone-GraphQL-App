@@ -31,6 +31,7 @@ export default (state = initialState, action) => {
     case C.LOGIN_SUCCESS:
       return {
         ...state,
+        id: action.id,
         loading: false,
         authenticated: true,
         token: action.token,

@@ -24,10 +24,10 @@ import {
   setNotificationMessage,
   setNotificationSeverity,
 } from '../../store/notification/notificationActions';
+import * as status from '../notification/Notification';
 import * as styles from './Login.module.scss';
 import { validateLogin, validatePassword } from '../../utils/dataValidations';
 import routes from '../../routes/routesStrings';
-import * as status from '../notification/Notification';
 import { UserReducers } from '../../interfaces/Reducers';
 
 interface LoginMutationInput {
@@ -56,6 +56,9 @@ const LOGIN = gql`
       token {
         accessToken
         refreshToken
+      }
+      user {
+        _id
       }
     }
   }

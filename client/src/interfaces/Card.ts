@@ -23,7 +23,7 @@ export enum ClassName {
 
 export interface Card {
   _id?: string;
-  id?: string;
+  id?: number;
   name: string;
   text: string;
   className: ClassName;

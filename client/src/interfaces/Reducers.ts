@@ -1,5 +1,6 @@
 export interface UserReducers {
   userReducers: {
+    id: string;
     loading: boolean;
     authenticated: boolean;
     token: string;

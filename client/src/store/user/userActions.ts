@@ -39,7 +39,7 @@ export const login = (
 ) => async (dispatch: Function) => {
   dispatch({ type: C.LOGIN_BEGIN });
 
-  const { setAccessToken, getAccessToken } = authService();
+  const { setAccessToken, setUserId } = authService();
 
   try {
     const { data } = await logIn({
@@ -48,12 +48,13 @@ export const login = (
 
     if (data?.login?.success) {
       setAccessToken(data?.login?.token?.accessToken);
-      const accessToken = getAccessToken();
+      setUserId(data?.login?.user?._id);
 
       dispatch({
         type: C.LOGIN_SUCCESS,
-        token: accessToken,
+        token: data?.login?.token?.accessToken,
         responseMessage: data?.login?.message,
+        id: data?.login?.user?._id,
       });
     } else {
       dispatch({

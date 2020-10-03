@@ -1,5 +1,6 @@
 const ACCESS_TOKEN = 'accessToken';
 const REFRESH_TOKEN = 'refreshToken';
+const USER_ID = 'userId';
 
 const authService = () => ({
   setAccessToken: (accessToken: string) =>
@@ -11,6 +12,10 @@ const authService = () => ({
     localStorage.setItem(REFRESH_TOKEN, refreshToken),
 
   getRefreshToken: () => localStorage.getItem(REFRESH_TOKEN),
+
+  setUserId: (userId: string) => localStorage.setItem(USER_ID, userId),
+
+  getUserId: () => localStorage.getItem(USER_ID),
 
   logout: () => localStorage.removeItem(ACCESS_TOKEN),
 });

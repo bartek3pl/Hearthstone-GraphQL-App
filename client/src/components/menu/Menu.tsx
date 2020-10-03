@@ -28,6 +28,7 @@ import TabPanel from '../tabPanel/TabPanel';
 import Cards from '../cards/Cards';
 import FavouriteCards from '../favouriteCards/FavouriteCards';
 import Decks from '../decks/Decks';
+import hearthstoneLogo from '../../assets/hearthstoneLogo.svg';
 
 const Menu = () => {
   const dispatch = useDispatch();
@@ -55,6 +56,7 @@ const Menu = () => {
 
   const handleLogout = () => {
     dispatch(logout());
+    window.location.replace(routes.login);
   };
 
   useEffect(() => {
@@ -72,6 +74,11 @@ const Menu = () => {
     <>
       <AppBar position="static">
         <Toolbar>
+          <img
+            src={hearthstoneLogo}
+            className={styles.logo}
+            alt="hearthstone logo"
+          />
           <Typography variant="h6" className={styles.title}>
             Hearthstone API
           </Typography>
