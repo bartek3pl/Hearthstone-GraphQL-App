@@ -12,6 +12,7 @@ import {
   CircularProgress,
   Link,
   InputAdornment,
+  Paper,
 } from '@material-ui/core';
 import LockIcon from '@material-ui/icons/Lock';
 import PermIdentityOutlinedIcon from '@material-ui/icons/PermIdentityOutlined';
@@ -142,120 +143,129 @@ const Registration = () => {
     password !== confirmPassword && confirmPassword !== '';
 
   return (
-    <div className={styles.paper}>
-      <Avatar className={styles.avatar}>
-        <LockIcon />
-      </Avatar>
-      <Typography component="h1" variant="h5">
-        Sign up
-      </Typography>
-      <form className={styles.form} noValidate onSubmit={handleSubmit}>
-        <Grid container spacing={2}>
-          <Grid item xs={12}>
-            <TextField
-              variant="outlined"
-              required
-              fullWidth
-              id="login"
-              placeholder="Login"
-              name="login"
-              autoComplete="login"
-              onChange={handleLoginChange}
-              value={username}
-              error={shouldLoginErrorDisplay()}
-              helperText={shouldLoginErrorDisplay() && LOGIN_VALIDATION}
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <PermIdentityOutlinedIcon />
-                  </InputAdornment>
-                ),
-              }}
-            />
-          </Grid>
-          <Grid item xs={12}>
-            <TextField
-              variant="outlined"
-              required
-              fullWidth
-              name="password"
-              placeholder="Password"
-              type={showPassword ? 'text' : 'password'}
-              id="password"
-              autoComplete="current-password"
-              onChange={handlePasswordChange}
-              value={password}
-              error={shouldPasswordErrorDisplay()}
-              helperText={shouldPasswordErrorDisplay() && PASSWORD_VALIDATION}
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <LockOutlinedIcon />
-                  </InputAdornment>
-                ),
-                endAdornment: (
-                  <InputAdornment
-                    position="start"
-                    onClick={handlePasswordVisibility}
-                  >
-                    {showPassword ? (
-                      <VisibilityOutlinedIcon />
-                    ) : (
-                      <VisibilityOffOutlinedIcon />
-                    )}
-                  </InputAdornment>
-                ),
-              }}
-            />
-          </Grid>
-          <Grid item xs={12}>
-            <TextField
-              variant="outlined"
-              required
-              fullWidth
-              name="confirmPassword"
-              placeholder="Confirm password"
-              type="password"
-              id="confirmPassword"
-              autoComplete="current-password"
-              onChange={handleConfirmPasswordChange}
-              value={confirmPassword}
-              error={shouldConfirmPasswordErrorDisplay()}
-              helperText={
-                shouldConfirmPasswordErrorDisplay() &&
-                CONFIRM_PASSWORD_VALIDATION
-              }
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <LockOutlinedIcon />
-                  </InputAdornment>
-                ),
-              }}
-            />
-          </Grid>
-        </Grid>
-        <div className={styles.buttonWrapper}>
-          <Button
-            type="submit"
-            size="large"
-            fullWidth
-            variant="contained"
-            color="primary"
-            className={styles.submit}
-            disabled={!isFormValid() || loading}
-          >
-            Register
-          </Button>
-          {loading && (
-            <CircularProgress size={24} className={styles.buttonProgress} />
-          )}
+    <Grid container component="main" className={styles.root}>
+      <Grid item xs={false} sm={4} md={7} className={styles.image} />
+      <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+        <div className={styles.paper}>
+          <Avatar className={styles.avatar}>
+            <LockIcon />
+          </Avatar>
+          <Typography component="h1" variant="h5">
+            Sign up
+          </Typography>
+          <form className={styles.form} noValidate onSubmit={handleSubmit}>
+            <Grid container spacing={2}>
+              <Grid item xs={12}>
+                <TextField
+                  variant="outlined"
+                  required
+                  fullWidth
+                  id="login"
+                  placeholder="Login"
+                  name="login"
+                  autoComplete="login"
+                  onChange={handleLoginChange}
+                  value={username}
+                  error={shouldLoginErrorDisplay()}
+                  helperText={shouldLoginErrorDisplay() && LOGIN_VALIDATION}
+                  InputProps={{
+                    startAdornment: (
+                      <InputAdornment position="start">
+                        <PermIdentityOutlinedIcon />
+                      </InputAdornment>
+                    ),
+                  }}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  variant="outlined"
+                  required
+                  fullWidth
+                  name="password"
+                  placeholder="Password"
+                  type={showPassword ? 'text' : 'password'}
+                  id="password"
+                  autoComplete="current-password"
+                  onChange={handlePasswordChange}
+                  value={password}
+                  error={shouldPasswordErrorDisplay()}
+                  helperText={
+                    shouldPasswordErrorDisplay() && PASSWORD_VALIDATION
+                  }
+                  InputProps={{
+                    startAdornment: (
+                      <InputAdornment position="start">
+                        <LockOutlinedIcon />
+                      </InputAdornment>
+                    ),
+                    endAdornment: (
+                      <InputAdornment
+                        position="start"
+                        onClick={handlePasswordVisibility}
+                      >
+                        {showPassword ? (
+                          <VisibilityOutlinedIcon />
+                        ) : (
+                          <VisibilityOffOutlinedIcon />
+                        )}
+                      </InputAdornment>
+                    ),
+                  }}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  variant="outlined"
+                  required
+                  fullWidth
+                  name="confirmPassword"
+                  placeholder="Confirm password"
+                  type="password"
+                  id="confirmPassword"
+                  autoComplete="current-password"
+                  onChange={handleConfirmPasswordChange}
+                  value={confirmPassword}
+                  error={shouldConfirmPasswordErrorDisplay()}
+                  helperText={
+                    shouldConfirmPasswordErrorDisplay() &&
+                    CONFIRM_PASSWORD_VALIDATION
+                  }
+                  InputProps={{
+                    startAdornment: (
+                      <InputAdornment position="start">
+                        <LockOutlinedIcon />
+                      </InputAdornment>
+                    ),
+                  }}
+                />
+              </Grid>
+            </Grid>
+            <div className={styles.buttonWrapper}>
+              <Button
+                type="submit"
+                size="large"
+                fullWidth
+                variant="contained"
+                color="primary"
+                className={styles.submit}
+                disabled={!isFormValid() || loading}
+              >
+                Register
+              </Button>
+              {loading && (
+                <CircularProgress size={24} className={styles.buttonProgress} />
+              )}
+            </div>
+          </form>
+          <Typography className={styles.link}>
+            <Link href={routes.login}>
+              Already signed up? Go to login page.
+            </Link>
+          </Typography>
         </div>
-      </form>
-      <Typography className={styles.link}>
-        <Link href={routes.login}>Already signed up? Go to login page.</Link>
-      </Typography>
-    </div>
+      </Grid>
+    </Grid>
   );
 };
 

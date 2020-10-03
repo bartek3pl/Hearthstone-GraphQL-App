@@ -1,37 +1,49 @@
 @import '../../styles/Colors.css';
 
-.paper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 100px;
+.root {
+  height: 100vh;
 
-  .avatar {
-    margin: 20px;
-    background-color: var(--orange) !important;
+  .image {
+    background-image: url('../../assets/hearthstoneLoginBackground.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right;
   }
 
-  .form {
-    margin-top: 30px;
+  .paper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 60px;
+    padding: 0 10%;
 
-    .submit {
-      margin-top: 20px !important;
+    .avatar {
+      margin: 20px;
+      background-color: var(--orange) !important;
     }
 
-    .buttonWrapper {
-      position: relative;
+    .form {
+      margin-top: 30px;
 
-      .buttonProgress {
-        color: var(--green) !important;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        margin-left: -12px;
+      .submit {
+        margin-top: 20px !important;
+      }
+
+      .buttonWrapper {
+        position: relative;
+
+        .buttonProgress {
+          color: var(--green) !important;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          margin-left: -12px;
+        }
       }
     }
-  }
 
-  .link {
-    margin-top: 20px;
+    .link {
+      margin-top: 20px;
+    }
   }
 }
