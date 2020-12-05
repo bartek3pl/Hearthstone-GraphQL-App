@@ -20,7 +20,7 @@ Hearthstone GraphQL App is an application built for GraphQL, Apollo, Node, Mongo
 
 I have built this application using:
 
-## Client
+#### Client
 
 * [ECMAScript 6+](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Language_Resources) 
 * [React](https://reactjs.org/)
@@ -36,7 +36,7 @@ I have built this application using:
 * [Docker](https://www.docker.com/)
 * [Docker-compose](https://docs.docker.com/compose/)
 
-## Server
+#### Server
 
 * [Node](https://nodejs.org/en/)
 * [MongoDB](https://www.mongodb.com/)
